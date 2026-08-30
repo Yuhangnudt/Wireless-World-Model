@@ -1,0 +1,46 @@
+{
+  "model_name": "WWM-V2",
+  "source": "bare_jrnl.pdf",
+  "weights": "checkpoints/wwm_v2_fp32.pt",
+  "observation": {
+    "context_steps": 16,
+    "future_steps": 4,
+    "csi_shape": [2, 20, 32, 32],
+    "carrier_frequency_hz": 3500000000.0,
+    "subcarrier_spacing_hz": 15000.0,
+    "sample_period_s": 0.005,
+    "raw_subcarriers": 96,
+    "subbands": 8,
+    "bs_ports": 32,
+    "ue_ports": 4
+  },
+  "architecture": {
+    "latent_dim": 768,
+    "csi_patch": [2, 4, 4],
+    "csi_tokens": 640,
+    "point_count": 1024,
+    "point_tokens": 256,
+    "trajectory_tokens": 20,
+    "encoder_layers": 16,
+    "predictor_layers": 16,
+    "attention_heads": 12,
+    "ffn_mult": 4,
+    "total_tokens": 916
+  },
+  "preprocessing": {
+    "signed_log": "sign(x) * log(1 + abs(x))",
+    "context_rms_normalization": true,
+    "context_rms_feature": "standardized log10(R_ctx)",
+    "point_normalization": "unit_sphere"
+  },
+  "training": {
+    "jepa_mode": "sigreg",
+    "ema_decay": 0.9925,
+    "masking": ["fine_block", "coarse_block", "temporal_rows", "trajectory"],
+    "point_tokens_visible_during_pretraining": true,
+    "deep_supervision_levels": 4,
+    "sigreg_projections": 256,
+    "decoder_layers": 8,
+    "decoder_note": "V2 pre-training CSI head and downstream heads are checkpointed separately"
+  }
+}

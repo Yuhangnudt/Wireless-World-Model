@@ -1,0 +1,8 @@
+# Model weights are tracked separately with Git LFS and omitted from source
+# distributions to keep Python package archives practical.
+global-exclude *.pt
+global-exclude *.pth
+global-exclude *.ckpt
+include docs/paper_protocol_manifest.json
+exclude checkpoints/wwm_v2_architecture.json
+prune checkpoints/heads
