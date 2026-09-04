@@ -1,6 +1,6 @@
 from argparse import Namespace
 
-from wwm.paper_config import PAPER_PROTOCOL, apply_paper_protocol, validate_paper_args
+from wwm.wwm_config import PAPER_PROTOCOL, apply_paper_protocol, validate_paper_args
 
 
 def test_paper_token_geometry():

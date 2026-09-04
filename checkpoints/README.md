@@ -2,7 +2,7 @@
 
 The paper-code release does not provide trained weights. Generate a Point-BERT
 dVAE tokenizer and the WWM backbone locally, then pass their paths to
-`train_paper.py` with `--point-dvae-resume` and `--resume`. Some internal
+`train_wwm.py` with `--point-dvae-resume` and `--resume`. Some internal
 workspaces may show legacy hard-linked `.pt` files from the simulation-results
 folder; those artifacts are not part of this paper protocol and are ignored by
 Git.

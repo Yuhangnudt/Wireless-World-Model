@@ -9,8 +9,8 @@ The released reference is the single `WWM-V2` checkpoint. Its design combines mo
 | Path | Purpose |
 | --- | --- |
 | `wwm/` | Core model, losses, data pipeline, metrics, and deterministic split indexer |
-| `train_paper.py` | Strict V2 training entry point with locked architecture defaults |
-| `train_wwm_paper.py` | General training dispatcher for declared ablations |
+| `train_wwm.py` | Strict V2 training entry point with locked architecture defaults |
+| `train_wwm_dispatch.py` | General training dispatcher for declared ablations |
 | `tools/wwm_four_downstream_tasks.py` | Frozen-backbone evaluation for the four paper tasks |
 | `tools/build_split_index.py` | Portable train/validation/test index and leakage audit |
 | `tools/export_release_checkpoint.py` | Strip optimizer/history from a training checkpoint |
@@ -48,14 +48,14 @@ The command writes `index.csv` (one row per sample) and `manifest.json` (counts 
 ## Train the reference model
 
 ```bash
-python train_paper.py \\
+python train_wwm.py \\
   --dataset-root /data/WWM_7city_16to4 \\
   --output-dir runs/wwm_v2 \\
   --point-dvae-resume checkpoints/point_dvae.pt \\
   --limit-steps 4544 --seed 42
 ```
 
-`train_paper.py` applies the V2 architecture and preprocessing defaults from `wwm/paper_config.py`; runtime paths, device, worker count, and resume options remain caller-controlled. Use `docs/TRAINING_RECIPE.md` for the full command and downstream head protocol.
+`train_wwm.py` applies the V2 architecture and preprocessing defaults from `wwm/wwm_config.py`; runtime paths, device, worker count, and resume options remain caller-controlled. Use `docs/TRAINING_RECIPE.md` for the full command and downstream head protocol.
 
 ## Load the released backbone
 

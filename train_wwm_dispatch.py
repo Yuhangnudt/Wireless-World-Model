@@ -8,7 +8,7 @@ monolith). Stages:
   --train-stage wwm (default)  -> downstream CSI forecasting (frozen backbone)
 
 Pass --paper-protocol to lock the namespace to the current journal-paper
-architecture and preprocessing. train_paper.py enables this lock by default.
+architecture and preprocessing. train_wwm.py enables this lock by default.
 
 Network/method changes over baseline WWM (see TECHNICAL_DOC.md):
   A) per-modality LayerNorm in the MoE transformer (shared attention kept)
@@ -20,7 +20,7 @@ import json
 
 from wwm.cli import parse_args
 from wwm.engine import train, train_wwm_pretrain, train_point_dvae
-from wwm.paper_config import apply_paper_protocol, paper_summary
+from wwm.wwm_config import apply_paper_protocol, paper_summary
 
 
 def main() -> None:

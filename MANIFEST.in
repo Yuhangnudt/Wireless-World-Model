@@ -3,6 +3,6 @@
 global-exclude *.pt
 global-exclude *.pth
 global-exclude *.ckpt
-include docs/paper_protocol_manifest.json
+include docs/wwm_protocol_manifest.json
 exclude checkpoints/wwm_v2_architecture.json
 prune checkpoints/heads

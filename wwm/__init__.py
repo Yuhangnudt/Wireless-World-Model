@@ -1,6 +1,6 @@
 """Wireless World Model (WWM) — paper-aligned training package.
 
-Refactored from the single-file train_wwm_paper.py monolith into cohesive modules:
+Refactored from the original single-file implementation into cohesive modules:
   common   — shared helpers (init, sincos, complex/patch views, IO)
   metrics  — SGCS / NMSE
   pointbert— Point-BERT dVAE tokenizer stack

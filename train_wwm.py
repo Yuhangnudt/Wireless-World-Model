@@ -2,7 +2,7 @@
 """Strict entry point for the current journal-paper WWM protocol.
 
 This wrapper keeps operational options (dataset/output/device/checkpoint paths)
-from :mod:`wwm.cli` but always applies :mod:`wwm.paper_config`.  Use
+from :mod:`wwm.cli` but always applies :mod:`wwm.wwm_config`.  Use
 ``--train-stage wwm`` for a downstream forecasting head; the default stage is
 multimodal JEPA pretraining.
 """
@@ -13,7 +13,7 @@ import sys
 
 from wwm.cli import parse_args
 from wwm.engine import train, train_point_dvae, train_wwm_pretrain
-from wwm.paper_config import apply_paper_protocol, paper_summary
+from wwm.wwm_config import apply_paper_protocol, paper_summary
 
 
 def main() -> None:
@@ -35,4 +35,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

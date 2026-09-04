@@ -1212,7 +1212,7 @@ def self_test() -> None:
 
 def parser() -> argparse.ArgumentParser:
     root = ROOT.parent
-    out = ROOT / "outputs" / "training_runs" / "wwm_downstream5_paper_protocol"
+    out = ROOT / "outputs" / "training_runs" / "wwm_downstream5_protocol"
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--self-test", action="store_true")
     p.add_argument("--dry-run", action="store_true")
